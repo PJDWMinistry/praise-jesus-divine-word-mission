@@ -3,13 +3,655 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Play & Learn | Praise Jesus Divine Word Mission</title>
+
+  <meta name="description" content="Play and learn the Bible through games, quizzes, puzzles and challenges with Praise Jesus Divine Word Mission.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, #ffe082 0, transparent 30%),
+        radial-gradient(circle at top right, #81d4fa 0, transparent 30%),
+        linear-gradient(135deg, #fff8e1, #e3f2fd);
+      color: #172033;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .page {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* HEADER */
+
+    .topbar {
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 14px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .topbar-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #172033;
+      font-weight: 800;
+    }
+
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      background: linear-gradient(135deg, #ffca28, #ff7043);
+      box-shadow: 0 6px 15px rgba(255, 112, 67, 0.25);
+    }
+
+    .brand-text small {
+      display: block;
+      font-size: 11px;
+      color: #667085;
+      margin-top: 2px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 11px 17px;
+      border-radius: 999px;
+      background: #172033;
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 70px 20px 45px;
+      text-align: center;
+    }
+
+    .game-badge {
+      display: inline-block;
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: #ffffff;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      font-weight: 800;
+      color: #7b1fa2;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(44px, 8vw, 82px);
+      line-height: 0.95;
+      font-weight: 950;
+      letter-spacing: -3px;
+      background: linear-gradient(90deg, #7b1fa2, #e91e63, #f57c00);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 24px auto 0;
+      font-size: 19px;
+      line-height: 1.7;
+      color: #4b5565;
+    }
+
+    .hero-controller {
+      margin: 35px auto 0;
+      width: 170px;
+      height: 105px;
+      border-radius: 55px 55px 35px 35px;
+      background: linear-gradient(135deg, #7b1fa2, #e91e63);
+      position: relative;
+      box-shadow: 0 18px 35px rgba(123, 31, 162, 0.28);
+      transform: rotate(-2deg);
+    }
+
+    .hero-controller::before {
+      content: "✚";
+      position: absolute;
+      left: 30px;
+      top: 28px;
+      font-size: 34px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .hero-controller::after {
+      content: "●  ●";
+      position: absolute;
+      right: 24px;
+      top: 35px;
+      font-size: 20px;
+      color: #ffe082;
+      letter-spacing: 4px;
+    }
+
+    /* LANGUAGE */
+
+    .language-box {
+      max-width: 1000px;
+      margin: 10px auto 55px;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 25px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .language-box h2 {
+      margin: 0 0 15px;
+      font-size: 21px;
+    }
+
+    .languages {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .language {
+      border: 0;
+      padding: 10px 17px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: #263238;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .language.active {
+      background: #7b1fa2;
+      color: white;
+    }
+
+    /* GAMES */
+
+    .games {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px 70px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 38px;
+    }
+
+    .section-heading p {
+      color: #667085;
+      font-size: 16px;
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .game-card {
+      position: relative;
+      padding: 28px;
+      min-height: 230px;
+      border-radius: 28px;
+      color: white;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .game-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.17);
+    }
+
+    .game-card:nth-child(1) {
+      background: linear-gradient(135deg, #7b1fa2, #512da8);
+    }
+
+    .game-card:nth-child(2) {
+      background: linear-gradient(135deg, #0288d1, #00acc1);
+    }
+
+    .game-card:nth-child(3) {
+      background: linear-gradient(135deg, #ef6c00, #f9a825);
+    }
+
+    .game-card:nth-child(4) {
+      background: linear-gradient(135deg, #00897b, #43a047);
+    }
+
+    .game-card:nth-child(5) {
+      background: linear-gradient(135deg, #d81b60, #8e24aa);
+    }
+
+    .game-card:nth-child(6) {
+      background: linear-gradient(135deg, #3949ab, #1e88e5);
+    }
+
+    .game-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .game-card h3 {
+      margin: 0 0 9px;
+      font-size: 25px;
+    }
+
+    .game-card p {
+      margin: 0;
+      line-height: 1.55;
+      opacity: 0.93;
+    }
+
+    .play-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 17px;
+      border-radius: 999px;
+      background: white;
+      color: #172033;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    /* LEVELS */
+
+    .levels {
+      max-width: 1200px;
+      margin: 0 auto 70px;
+      padding: 0 20px;
+    }
+
+    .level-box {
+      background: white;
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .level-box h2 {
+      margin-top: 0;
+      font-size: 30px;
+    }
+
+    .level-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .level {
+      padding: 17px 10px;
+      border-radius: 18px;
+      background: #f5f7fb;
+      font-weight: 800;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #172033;
+      color: white;
+      padding: 35px 20px;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 7px 0;
+      color: #cbd5e1;
+    }
+
+    footer a {
+      color: #ffe082;
+      font-weight: 700;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+      .game-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .level-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar-inner {
+        flex-direction: column;
+      }
+
+      .hero {
+        padding-top: 45px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .game-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .level-list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <h1>🎮 Play & Learn</h1>
+<div class="page">
 
-  <p>Welcome to the Bible games and learning area.</p>
+  <header class="topbar">
+    <div class="topbar-inner">
+
+      <a class="brand" href="index.htm">
+        <span class="brand-icon">🎮</span>
+
+        <span class="brand-text">
+          Play & Learn
+          <small>Praise Jesus Divine Word Mission</small>
+        </span>
+      </a>
+
+      <a class="back-btn" href="index.htm">
+        ← Main Website
+      </a>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <section class="hero">
+
+      <div class="game-badge">
+        ✨ Bible Games • Learning • Challenges
+      </div>
+
+      <h1>Play & Learn</h1>
+
+      <p>
+        Explore the Bible through fun games, quizzes, puzzles,
+        challenges and learning activities for everyone.
+      </p>
+
+      <div class="hero-controller"></div>
+
+    </section>
+
+
+    <section class="language-box">
+
+      <h2>🌍 Choose Your Language</h2>
+
+      <div class="languages">
+
+        <button class="language active">English</button>
+        <button class="language">ಕನ್ನಡ</button>
+        <button class="language">हिन्दी</button>
+        <button class="language">தமிழ்</button>
+        <button class="language">മലയാളം</button>
+        <button class="language">తెలుగు</button>
+
+      </div>
+
+    </section>
+
+
+    <section class="games">
+
+      <div class="section-heading">
+
+        <h2>🎮 Bible Games</h2>
+
+        <p>
+          Choose a game and start exploring God's Word.
+        </p>
+
+      </div>
+
+
+      <div class="game-grid">
+
+        <article class="game-card">
+
+          <div class="game-icon">🧠</div>
+
+          <h3>Bible Quiz</h3>
+
+          <p>
+            Test your Bible knowledge and discover how much you remember.
+          </p>
+
+          <a class="play-btn" href="#">
+            Play Quiz →
+          </a>
+
+        </article>
+
+
+        <article class="game-card">
+
+          <div class="game-icon">🧩</div>
+
+          <h3>Bible Puzzles</h3>
+
+          <p>
+            Solve Scripture-based puzzles and unlock new challenges.
+          </p>
+
+          <a class="play-btn" href="#">
+            Play Puzzle →
+          </a>
+
+        </article>
+
+
+        <article class="game-card">
+
+          <div class="game-icon">🏆</div>
+
+          <h3>Bible Challenges</h3>
+
+          <p>
+            Complete Bible challenges and try to reach the highest score.
+          </p>
+
+          <a class="play-btn" href="#">
+            Start Challenge →
+          </a>
+
+        </article>
+
+
+        <article class="game-card">
+
+          <div class="game-icon">📖</div>
+
+          <h3>Learn the Bible</h3>
+
+          <p>
+            Learn important people, places, events and teachings from Scripture.
+          </p>
+
+          <a class="play-btn" href="#">
+            Start Learning →
+          </a>
+
+        </article>
+
+
+        <article class="game-card">
+
+          <div class="game-icon">⚡</div>
+
+          <h3>Quick Challenge</h3>
+
+          <p>
+            Answer quick Bible questions and see how fast you can respond.
+          </p>
+
+          <a class="play-btn" href="#">
+            Start Game →
+          </a>
+
+        </article>
+
+
+        <article class="game-card">
+
+          <div class="game-icon">🌟</div>
+
+          <h3>Bible Adventure</h3>
+
+          <p>
+            Explore Bible stories through an exciting adventure-style experience.
+          </p>
+
+          <a class="play-btn" href="#">
+            Enter Adventure →
+          </a>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <section class="levels">
+
+      <div class="level-box">
+
+        <h2>🏅 Learning Levels</h2>
+
+        <p>
+          Start simple and gradually take on harder Bible challenges.
+        </p>
+
+        <div class="level-list">
+
+          <div class="level">⭐ Level 1<br>Beginner</div>
+
+          <div class="level">⭐⭐ Level 2<br>Explorer</div>
+
+          <div class="level">⭐⭐⭐ Level 3<br>Student</div>
+
+          <div class="level">🏆 Level 4<br>Bible Master</div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <p>
+      🎮 Play & Learn
+    </p>
+
+    <p>
+      Praise Jesus Divine Word Mission
+    </p>
+
+    <p>
+      <a href="index.htm">← Return to Main Website</a>
+    </p>
+
+  </footer>
+
+</div>
+
+
+<script>
+
+  const languageButtons = document.querySelectorAll(".language");
+
+  languageButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      languageButtons.forEach(item => {
+        item.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+    });
+
+  });
+
+</script>
 
 </body>
 </html>
