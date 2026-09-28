@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bible Study | Praise Jesus Divine Word Mission</title>
+
+  <meta name="description"
+        content="Read and study the Bible with multilingual Scripture, Bible search, AI study and natural voice learning at Praise Jesus Divine Word Mission.">
+
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0b0b;
+      color: #ffffff;
+    }
+
+    .header {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      background: rgba(11,11,11,0.96);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .brand span {
+      display: block;
+    }
+
+    .brand small {
+      display: block;
+      color: #bdbdbd;
+      font-size: 11px;
+      margin-top: 3px;
+      font-weight: 400;
+    }
+
+    .back {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 9px 14px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 8px;
+    }
+
+    .main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 22px 80px;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .title h1 {
+      font-size: clamp(34px, 5vw, 58px);
+      margin: 0 0 12px;
+    }
+
+    .title p {
+      color: #bdbdbd;
+      margin: 0;
+    }
+
+    .languages {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 30px 0;
+    }
+
+    .language {
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: #151515;
+      color: white;
+      cursor: pointer;
+    }
+
+    .language.active {
+      background: #ffffff;
+      color: #0b0b0b;
+    }
+
+    .bible-card {
+      background: #121212;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 30px;
+      margin-top: 25px;
+    }
+
+    .chapter-heading {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .chapter-heading h2 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    .chapter-heading p {
+      margin: 0;
+      color: #aaa;
+    }
+
+    .scripture-placeholder {
+      padding: 30px;
+      border-radius: 12px;
+      background: #0b0b0b;
+      border: 1px dashed rgba(255,255,255,0.2);
+      color: #aaa;
+      text-align: center;
+    }
+
+    .search-box {
+      margin-top: 25px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: #0b0b0b;
+      color: white;
+      font-size: 16px;
+    }
+
+    .study-modes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .mode {
+      padding: 22px;
+      border-radius: 12px;
+      background: #181818;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .mode h3 {
+      margin-top: 0;
+    }
+
+    .mode p {
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    .voice {
+      margin-top: 25px;
+      padding: 22px;
+      border-radius: 12px;
+      background: #181818;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .voice button {
+      padding: 12px 20px;
+      border: 0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    @media (max-width: 700px) {
+      .header {
+        padding: 0 15px;
+      }
+
+      .brand span {
+        font-size: 14px;
+      }
+
+      .back {
+        font-size: 12px;
+      }
+
+      .study-modes {
+        grid-template-columns: 1fr;
+      }
+
+      .bible-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+
+    <a class="brand" href="index.htm">
+      <img src="logo.png" alt="Praise Jesus Divine Word Mission logo">
+
+      <span>
+        Praise Jesus
+        <small>Divine Word Mission</small>
+      </span>
+    </a>
+
+    <a class="back" href="index.htm">
+      ← Main Website
+    </a>
+
+  </header>
+
+
+  <main class="main">
+
+    <section class="title">
+
+      <h1>📖 Bible Study</h1>
+
+      <p>
+        Read Scripture, search the Bible and explore deeper study.
+      </p>
+
+    </section>
+
+
+    <section class="languages">
+
+      <button class="language active">English</button>
+      <button class="language">தமிழ்</button>
+      <button class="language">ಕನ್ನಡ</button>
+      <button class="language">हिन्दी</button>
+      <button class="language">తెలుగు</button>
+      <button class="language">മലയാളം</button>
+
+    </section>
+
+
+    <section class="bible-card">
+
+      <div class="chapter-heading">
+
+        <h2>Genesis — Chapter 1</h2>
+
+        <p>World English Bible</p>
+
+      </div>
+
+
+      <div class="scripture-placeholder">
+
+        <p>
+          Genesis Chapter 1 Scripture will be connected here.
+        </p>
+
+        <p>
+          The Bible text will come from the selected Bible translation.
+        </p>
+
+      </div>
+
+
+      <div class="search-box">
+
+        <input
+          type="search"
+          placeholder="🔎 Search this chapter..."
+          aria-label="Search this chapter"
+        >
+
+      </div>
+
+
+      <div class="study-modes">
+
+        <div class="mode">
+          <h3>🟢 Simple</h3>
+          <p>
+            Understand the chapter in clear and simple language.
+          </p>
+        </div>
+
+        <div class="mode">
+          <h3>🟡 Detailed Study</h3>
+          <p>
+            Explore the chapter, verses, themes and Bible connections.
+          </p>
+        </div>
+
+        <div class="mode">
+          <h3>🔴 Deep Study</h3>
+          <p>
+            Explore deeper research, context, language, cross-references
+            and documented sources.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="voice">
+
+        <h3>🔊 AI Bible Study Voice</h3>
+
+        <p>
+          Natural conversational Bible explanations will be added here.
+        </p>
+
+        <button type="button">
+          ▶ Listen
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
